@@ -31,7 +31,7 @@ def client():
     with TestClient(app) as client:
         yield test_client
 
-def test_health_endpoint():
+def test_health_endpoint(client):
     """
     Verify that the application is ruuning and can respond to a health-check request
     """
