@@ -23,7 +23,7 @@ jobs:
   test:
     name: Run Api test
     # Define the type of runner to run the job on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     # Define the steps to be executed as part of the job
     steps:
@@ -48,7 +48,7 @@ jobs:
   build:
     name: Build and publish Docker image
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Publish only when code is pushed to the main branch.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
