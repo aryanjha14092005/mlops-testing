@@ -29,11 +29,11 @@ jobs:
     steps:
       # Step 1: download the repo content to the runner
       - name: Checkout code repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Step 2: setup Python environment
       - name: Install Python on runner
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       #step 3: install dependencies
@@ -54,7 +54,7 @@ jobs:
     steps:
       #download repo source code
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Enable Docker Buildx functionality.
       - name: set up docker buildx
