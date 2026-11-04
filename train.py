@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 
+import os
 import mlflow
 import mlflow.sklearn
 # Client API lets us manage registered models and their aliases
@@ -12,7 +13,10 @@ from mlflow import MlflowClient
 
 # Configure MLFlow Tracking
 # MLFlow server stores experiment metadata and model records
-mlflow.set_tracking_uri("http://127.0.0.1:6001")
+MLFLOW_TRACKING_URI = os.getenv(
+    "MLFLOW_TRACKING_URI", "http://127.0.0.1:6001"
+)
+mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
 # Group related training runs under one experiment
 mlflow.set_experiment("iris-classification")
